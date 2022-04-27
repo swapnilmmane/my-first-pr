@@ -1,0 +1,12 @@
+#inmclude <stdio.h>
+#iinclude <conio.h>
+
+
+int main ()
+
+{
+print ("hello sir "\n);
+
+return0;
+
+}
