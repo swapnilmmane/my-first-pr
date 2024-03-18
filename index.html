@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="name">Username:-</label><input type="text" id="name" name="myData">
+    <br>
+    <button id="mybtn">Submit</button>
+<script>
+    let btn = document.querySelector("#mybtn");
+    btn.addEventListener("click", function() {
+        let data = document.querySelector("#name").value;
+        let obj = { name: data,
+                   user_id: Date.now(),
+                   status:"complete",
+                   email_id:"m@gmail.com",
+
+                 };
+
+
+
+
+
+
+
+
+
+        console.log(JSON.stringify(obj));
+        fetch("/myTask", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(obj)
+        }).then((response)=>{
+            if(!response.ok) return;
+            return "Fetched ";
+        }).then((data)=>{
+            console.log(data);
+        }).catch((err)=>{
+            console.log(err);
+        });
+    });
+</script> 
+</body>
+</html>
