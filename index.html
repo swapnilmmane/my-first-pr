@@ -9,17 +9,22 @@
 <body>
     <label for="name">Username:-</label><input type="text" id="name" name="myData">
     <br>
+    Even no:<input type="text" id="even"><br>
+    Odd no:<input type="text" id="odd"><br>
     <button id="mybtn">Submit</button>
 <script>
     let btn = document.querySelector("#mybtn");
     btn.addEventListener("click", function() {
         let data = document.querySelector("#name").value;
+        let even = document.querySelector("#even").value;
+        let odd = document.querySelector("#odd").value;
         let obj = { name: data,
                    user_id: Date.now(),
                    status:"complete",
                    email_id:"m@gmail.com",
-
-                  }
+                   even:even,
+                   odd:odd
+                 };
 
         console.log(JSON.stringify(obj));
         fetch("/myTask", {
